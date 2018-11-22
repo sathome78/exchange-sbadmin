@@ -5,7 +5,7 @@
 
     <groupId>me.exrates.sbadmin</groupId>
     <artifactId>sbadmin</artifactId>
-    <version>sbadmin-0.0.1</version>
+    <version>0.0.1</version>
     <packaging>jar</packaging>
 
     <name>sbadmin</name>
