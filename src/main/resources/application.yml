@@ -1,0 +1,24 @@
+spring:
+  boot:
+    admin:
+      notify:
+        slack:
+          webhook-url: https://hooks.slack.com/services/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
+          message: ${notification.message}
+        telegram:
+          auth-token: 699959474:AAEEybcpbcpxDvR3bOVjAE4aOtMb4DAcJKk
+          #          chat-id: 538444989
+          chat-id: -211478673
+          message: ${notification.message}
+  profiles:
+    active: dev
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8081/eureka}
+  instance:
+    preferIpAddress: true
+
+notification:
+  message: "<strong>#{instance.registration.name}-#{spring.profiles.active}</strong>/#{instance.id} is <strong>#{event.statusInfo.status}</strong>"
