@@ -4,9 +4,12 @@ ARG APP_PATH=/sbadmin
 ARG ENVIRONMENT
 
 RUN mkdir -p sbadmin
-COPY ./target/sbadmin-0.0.1.jar ${APP_PATH}/app.jar
-COPY ./target/classes/application.properties ${APP_PATH}/application.properties
+COPY ./target/sbadmin.jar ${APP_PATH}/sbadmin.jar
+COPY ./target/config/${ENVIRONMENT}/application.yml ${APP_PATH}/application.yml
+
+ARG CONFIG_FILE_PATH="-Dspring.config.location="${ENVIRONMENT}"/application.yml"
+
 WORKDIR ${APP_PATH}
-RUN readlink -f application.properties
+
 EXPOSE 8080
-CMD java -jar app.jar
+CMD java -jar sbadmin.jar CONFIG_FILE_PATH

@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: dev
+    active: prod
   application:
     admin:
       enabled: true
@@ -13,7 +13,6 @@ spring:
           message: "*#{instance.registration.name}*/#{instance.id} is *#{event.statusInfo.status}* (${spring.profiles.active})"
         telegram:
           auth-token: 699959474:AAEEybcpbcpxDvR3bOVjAE4aOtMb4DAcJKk
-#          chat-id: 538444989
           chat-id: -211478673
           message: "<strong>#{instance.registration.name}</strong>/#{instance.id} is <strong>#{event.statusInfo.status}</strong>  (${spring.profiles.active})"
 
