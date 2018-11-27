@@ -16,7 +16,7 @@ pipeline {
     stage('Docker Build') {
       agent any
       steps {
-        sh 'docker build -t roadtomoon/sbadmin-service:$ENVIRONMENT .'
+        sh 'docker build -t roadtomoon/sbadmin-service:$ENVIRONMENT --build-arg ENVIRONMENT .'
       }
     }
     stage('Docker pull') {
